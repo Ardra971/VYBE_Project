@@ -74,10 +74,9 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 
-# Database: PostgreSQL on Render, SQLite locally
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
-if DATABASE_URL and urlparse(DATABASE_URL).scheme in ("postgres", "postgresql"):
+if DATABASE_URL and DATABASE_URL.startswith(("postgres://", "postgresql://")):
     database_url = urlparse(DATABASE_URL)
 
     DATABASES = {
@@ -99,7 +98,6 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
