@@ -26,11 +26,9 @@ SECRET_KEY = 'django-insecure-^2h-y41ne^p##%lmn90h_2va59w%q*8z(*e6@$t&-12fbk7k8y
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    host.strip()
-    for host in os.environ.get(
-        "ALLOWED_HOSTS", "127.0.0.1,localhost"
-    ).split(",")
-    if host.strip()
+    "vybe-project.onrender.com",
+    "localhost",
+    "127.0.0.1",
 ]
 
 
